@@ -18,6 +18,23 @@ TYPES
   DateAndTime
     A DateTime object.
 
+  DateTime
+    A DateTime object. Exactly the same as the DateAndTime type. If using
+    this type and the DateTime module in your package, you'll have to alias
+    DateTime to something else.
+
+      package Person;
+
+      use Moo;
+      use MooX::Types::MooseLike::DateTime qw/DateTime/;
+      use aliased 'DateTime' => 'DT';
+
+      has birthdate => (
+        isa     => DateTime,
+            is      => 'ro',
+            default => sub { DT->today }
+      );
+
 TIPS
     Coercion
         use DateTime::Format::Strptime;
@@ -43,3 +60,4 @@ SEE ALSO
 LICENSE
     This library is free software; you can redistribute it and/or modify it
     under the same terms as Perl itself.
+

@@ -10,13 +10,13 @@ use Test::Exception;
 	package Foo;
 
 	use Moo;
-	use MooX::Types::MooseLike::DateTime qw/DateAndTime/;
-	use DateTime;
+	use MooX::Types::MooseLike::DateTime qw/DateTime/;
+	use aliased 'DateTime' => 'DT';
 
 	has foo => (
 		is => 'rw',
-		isa => DateAndTime,
-		default => sub { DateTime->today }
+		isa => DateTime,
+		default => sub { DT->today }
 	);
 }
 
@@ -30,3 +30,4 @@ throws_ok
 	{ Foo->new(foo => 'bar') }
 	qr/a DateTime object/,
 	'does not accept strings';
+

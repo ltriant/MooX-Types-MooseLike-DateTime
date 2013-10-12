@@ -12,13 +12,15 @@ our @EXPORT_OK = ();
 # VERSION
 
 my $type_definitions = [
-	{
-		name       => 'DateAndTime',
-		subtype_of => 'Object',
-		from       => 'MooX::Types::MooseLike::Base',
-		test       => sub { defined($_[0]) and ref($_[0]) eq 'DateTime' },
-		message    => sub { return exception_message($_[0], 'a DateTime object') }
-	}
+	map {
+		{
+			name       => $_,
+			subtype_of => 'Object',
+			from       => 'MooX::Types::MooseLike::Base',
+			test       => sub { defined($_[0]) and ref($_[0]) eq 'DateTime' },
+			message    => sub { return exception_message($_[0], 'a DateTime object') }
+		}
+	} qw/DateAndTime DateTime/
 ];
 
 MooX::Types::MooseLike::register_types($type_definitions, __PACKAGE__);
@@ -53,6 +55,22 @@ MooX::Types::MooseLike::DateTime - a DateTime type for Moo
 =head2 DateAndTime
 
 A DateTime object.
+
+=head2 DateTime
+
+A DateTime object. Exactly the same as the DateAndTime type. If using this type and the DateTime module in your package, you'll have to alias DateTime to something else.
+
+  package Person;
+
+  use Moo;
+  use MooX::Types::MooseLike::DateTime qw/DateTime/;
+  use aliased 'DateTime' => 'DT';
+
+  has birthdate => (
+    isa     => DateTime,
+	is      => 'ro',
+	default => sub { DT->today }
+  );
 
 =head1 TIPS
 
