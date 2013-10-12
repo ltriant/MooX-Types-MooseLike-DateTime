@@ -68,8 +68,8 @@ A DateTime object. Exactly the same as the DateAndTime type. If using this type 
 
   has birthdate => (
     isa     => DateTime,
-	is      => 'ro',
-	default => sub { DT->today }
+    is      => 'ro',
+    default => sub { DT->today }
   );
 
 =head1 TIPS

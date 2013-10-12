@@ -31,8 +31,8 @@ TYPES
 
       has birthdate => (
         isa     => DateTime,
-            is      => 'ro',
-            default => sub { DT->today }
+        is      => 'ro',
+        default => sub { DT->today }
       );
 
 TIPS
