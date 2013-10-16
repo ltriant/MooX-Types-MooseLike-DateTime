@@ -23,7 +23,7 @@ my $type_definitions = [
 	} qw/DateAndTime DateTime/
 ];
 
-MooX::Types::MooseLike::register_types($type_definitions, __PACKAGE__);
+MooX::Types::MooseLike::register_types($type_definitions, __PACKAGE__, 'MooseX::Types::DateTime');
 our %EXPORT_TAGS = (all => \@EXPORT_OK);
 
 1;
