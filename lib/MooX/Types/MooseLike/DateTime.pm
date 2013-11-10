@@ -6,6 +6,8 @@ use strict;
 use MooX::Types::MooseLike qw/exception_message/;
 use MooX::Types::MooseLike::Base;
 
+use Scalar::Util qw/blessed/;
+
 use base 'Exporter';
 our @EXPORT_OK = ();
 
@@ -17,7 +19,7 @@ my $type_definitions = [
 			name       => $_,
 			subtype_of => 'Object',
 			from       => 'MooX::Types::MooseLike::Base',
-			test       => sub { defined($_[0]) and ref($_[0]) eq 'DateTime' },
+			test       => sub { blessed($_[0]) and blessed($_[0]) eq 'DateTime' },
 			message    => sub { return exception_message($_[0], 'a DateTime object') }
 		}
 	} qw/DateAndTime DateTime/
