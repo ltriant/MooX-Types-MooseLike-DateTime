@@ -100,6 +100,10 @@ A DateTime object. Exactly the same as the DateAndTime type. If using this type 
 
 Luke Triantafyllidis E<lt>ltriant@cpan.orgE<gt>
 
+=head1 REPOSITORY
+
+L<https://github.com/ltriant/MooX-Types-MooseLike-DateTime>
+
 =head1 SEE ALSO
 
 L<MooX::Types::MooseLike>, L<DateTime>
