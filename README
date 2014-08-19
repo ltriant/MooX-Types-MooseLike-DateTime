@@ -54,6 +54,9 @@ TIPS
 AUTHOR
     Luke Triantafyllidis <ltriant@cpan.org>
 
+REPOSITORY
+    <https://github.com/ltriant/MooX-Types-MooseLike-DateTime>
+
 SEE ALSO
     MooX::Types::MooseLike, DateTime
 
